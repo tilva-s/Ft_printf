@@ -6,7 +6,7 @@
 /*   By: tiago <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:19:22 by tiago             #+#    #+#             */
-/*   Updated: 2023/10/31 12:30:38 by tiago            ###   ########.fr       */
+/*   Updated: 2023/11/01 13:00:40 by tsilva-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int    ft_putchar(char c);
 int     ft_putnbr(int n);
 int	ft_count_len(int n);
 int     ft_putstr(char *str);
+int     ft_count_len2(unsigned int n);
 
 int     ft_count_len(int n)
 {
@@ -38,6 +39,34 @@ int     ft_count_len(int n)
 		return (div + 1);
 	else
         	return (div);
+}
+
+int     ft_count_len2(unsigned int n)
+{
+        int     div;
+        unsigned int     aux;
+
+        div = 0;
+        aux = n;
+        while (aux)
+        {
+                aux = aux / 10;
+                div++;
+        }
+	return (div);
+}
+
+
+int   ft_putunsigned(unsigned int number, int flag)
+{
+	int count;
+
+	if (flag == 1)
+		count = ft_count_len2(number);
+	if (number >= 10)
+		ft_putunsigned(number / 10, 0);
+	ft_putchar((number % 10) + 48);
+	return (count);
 }
 
 int	ft_putstr(char *str)

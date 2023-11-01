@@ -6,7 +6,7 @@
 /*   By: tsilva-s <tsilva-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:43:12 by tsilva-s          #+#    #+#             */
-/*   Updated: 2023/10/31 16:36:36 by tiago            ###   ########.fr       */
+/*   Updated: 2023/11/01 17:36:28 by tsilva-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	ft_check_condition(char str, va_list ptr, int count);
 int    ft_putchar(char c);
 int	ft_putnbr(int n);
 int	ft_putstr(char *str);
+int	ft_putunsigned(unsigned int, int flag);
+int	ft_puthexa_low(unsigned int num);
 
 int	ft_printf(const char *str, ...)
 {
@@ -60,6 +62,10 @@ int	ft_check_condition(char str, va_list ptr, int count)
 		count = ft_putnbr(va_arg(ptr, int));
 	if (str == '%')
 		count = ft_putchar(str);
+	if (str == 'u')
+		count = ft_putunsigned(va_arg(ptr, unsigned int), 1);
+	if (str == 'x')
+		count = ft_puthexa_low(va_arg(ptr, unsigned int));
 	return (count);
 }
 
@@ -74,9 +80,9 @@ int	main(void)
 	int	count;
 	int	count2;
 
-	count = ft_printf("Ola eu sou o %i e tenho %c esta %% str %s", 32456, 'T', "");
+	count = ft_printf("Ola eu sou o %i e tenho %c esta %% str %s, teste %u e outro %u mais um %x", -2, 'T', "", -24, 21312, 42949);
 	printf("\n%d\n", count);
-	count2 = printf("Ola eu sou o %i e tenho %c esta %% str %s", 32456, 'T', "");
+	count2 = printf("Ola eu sou o %i e tenho %c esta %% str %s, teste %u e outro %u mais um %x", -2, 'T', "", -24, 21312, 42949);
 	printf("\n%d", count2);
 	return (0);
 }
