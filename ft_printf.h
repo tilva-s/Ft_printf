@@ -31,6 +31,6 @@ int	ft_puthexa_high(unsigned int num);
 int	ft_putmemory(void *mem);
 int	ft_count_len(int n);
 int	ft_count_len2(unsigned int n);
-int	ft_puthexa(unsigned long long int mem);
+int	ft_puthexa(unsigned long long mem);
 
 #endif
