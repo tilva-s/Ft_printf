@@ -6,24 +6,10 @@
 /*   By: tiago <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:19:22 by tiago             #+#    #+#             */
-/*   Updated: 2023/11/03 17:19:47 by tiago            ###   ########.fr       */
+/*   Updated: 2023/11/04 13:24:24 by tiago            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
-/*#include <stdio.h>
-#include <string.h>
-#include <stdarg.h>
-#include <unistd.h>
-#include <limits.h>
-*/
-/*
-int     ft_check_condition(char str, va_list ptr, int count);
-int    ft_putchar(char c, int count);
-int     ft_putnbr(int n);
-int	ft_count_len(int n);
-int     ft_putstr(char *str);
-int     ft_count_len2(unsigned int n);
-*/
 
 int	ft_count_len(int n)
 {
@@ -37,7 +23,7 @@ int	ft_count_len(int n)
 		aux = aux / 10;
 		div++;
 	}
-	if (n < 0)
+	if (n < 0 || n == 0)
 		return (div + 1);
 	else
 		return (div);
@@ -45,7 +31,7 @@ int	ft_count_len(int n)
 
 int	ft_count_len2(unsigned int n)
 {
-	int			div;
+	int				div;
 	unsigned int	aux;
 
 	div = 0;
@@ -63,7 +49,12 @@ int	ft_putunsigned(unsigned int number, int flag)
 	int	count;
 
 	if (flag == 1)
-		count = ft_count_len2(number);
+	{
+		if (number == 0)
+			count = 1;
+		else
+			count = ft_count_len2(number);
+	}
 	if (number >= 10)
 		ft_putunsigned(number / 10, 0);
 	ft_putchar((number % 10) + 48, 0);
@@ -74,6 +65,11 @@ int	ft_putstr(char *str)
 {
 	int	count;
 
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	count = 0;
 	while (str[count] != '\0')
 		count += ft_putchar(str[count], 0);

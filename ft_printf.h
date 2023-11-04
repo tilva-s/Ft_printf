@@ -6,7 +6,7 @@
 /*   By: tsilva-s <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:13:32 by tsilva-s          #+#    #+#             */
-/*   Updated: 2023/11/03 17:30:37 by tiago            ###   ########.fr       */
+/*   Updated: 2023/11/03 20:09:55 by tiago            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdlib.h>
 
 int	ft_printf(const char *str, ...);
-int	ft_check_condition(char str, va_list ptr, int count);
+int	ft_check_condition(char str, va_list ptr);
 int	ft_putchar(char c, int count);
 int	ft_putnbr(int n);
 int	ft_putstr(char *str);
