@@ -6,7 +6,7 @@
 /*   By: tiago <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:19:22 by tiago             #+#    #+#             */
-/*   Updated: 2023/11/04 13:24:24 by tiago            ###   ########.fr       */
+/*   Updated: 2023/11/07 19:11:51 by tsilva-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -48,6 +48,7 @@ int	ft_putunsigned(unsigned int number, int flag)
 {
 	int	count;
 
+	count = 0;
 	if (flag == 1)
 	{
 		if (number == 0)
