@@ -19,7 +19,7 @@ int	ft_printf(const char *str, ...)
 	int			count;
 
 	if (!str)
-		return (0);
+		return (-1);
 	count = 0;
 	va_start(ptr, str);
 	i = 0;
